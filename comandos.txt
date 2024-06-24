@@ -1,0 +1,140 @@
+ng new frontend
+ng generate component buscar-asociar-fondos
+
+ng generate component fondos.component
+
+ng generate component crear-fondos
+
+ng generate component  historial-transacciones
+
+ng generate component components/buscar-asociar-fondos
+
+ng generate service services/fondo
+
+ng generate service services/transacciones
+
+ netstat -ano | findstr :8082
+
+Stop-Process -Id 2852
+Stop-Process -Id 12736
+
+http://localhost:54392/buscar-asociar-fondos
+
+docker stop -f <nombre_o_id_del_contenedor>
+
+docker rmi -f localstack/localstack
+docker rmi -f 0a3483bb3332bbe9dcb42c34c3abfd10f07bf9735023016ba613aea640b7cf56
+docker rmi -f 9485adaf768cc14665a416e2bda496dcd797c25730089d1d7091076288271b1c
+docker rmi -f c4b52f4258f735e96586af60b6bd6c5c63fc9cd70dd942b82da2763d6415889c
+docker rmi -f fcd86ff8ce8c2d30f02607e184cbfd73eb581e22a451e4a1847a102318bc2926
+docker rmi -f 553a0e6d8bb30905406b45f7460c48ac4f7516a266a719fc18892eb57fe4b8a5
+
+
+mvn spring-boot:run
+
+mvn clean
+mvn install
+
+Inicio de LocalStack:
+
+
+Abre una terminal, navega hasta el directorio y ejecuta:
+bash
+Copiar código
+docker-compose up -d
+Verificación:
+
+Verifica que LocalStack esté ejecutándose correctamente:
+bash
+Copiar código
+docker-compose ps
+
+
+fondo-init-1
+
+docker exec -it fondo-init-1 sh
+
+docker exec -it fondo-localstack-1 sh
+
+docker logs fondo-localstack-1
+
+cd /scripts
+ls /scripts
+
+bash /scripts/init_dynamodb_tables.sh
+
+bash /scripts/init_dynamodb_tables.sh > output.log 2>&1
+
+aws dynamodb list-tables --endpoint-url http://localhost:4566 --region us-west-2
+
+aws dynamodb scan --table-name Clientes --endpoint-url http://localhost:4566
+
+aws dynamodb delete-table \
+    --table-name Clientes \
+    --endpoint-url http://localhost:4566 \
+
+aws dynamodb delete-table \
+    --table-name Cliente \
+    --endpoint-url http://localhost:4566 \
+
+
+aws dynamodb delete-table \
+    --table-name Cliente2 \
+    --endpoint-url http://localhost:4566 \
+
+
+aws dynamodb delete-table \
+    --table-name Cliente3 \
+    --endpoint-url http://localhost:4566 \
+
+aws dynamodb delete-table \
+    --table-name Cliente4 \
+    --endpoint-url http://localhost:4566 \
+	
+aws dynamodb delete-table \
+    --table-name Music \
+    --endpoint-url http://localhost:4566 \
+	
+aws dynamodb delete-table \
+    --table-name Musica \
+    --endpoint-url http://localhost:4566 \
+	
+aws dynamodb delete-table \
+    --table-name Musical \
+    --endpoint-url http://localhost:4566 \
+	
+
+aws dynamodb delete-table \
+    --table-name Musical2 \
+    --endpoint-url http://localhost:4566 \
+	
+aws dynamodb delete-table \
+    --table-name Musical23 \
+    --endpoint-url http://localhost:4566 \
+	
+aws dynamodb delete-table \
+    --table-name Musicas \
+    --endpoint-url http://localhost:4566
+	
+		aws dynamodb delete-item \
+    --table-name Clientes \
+    --key '{"id": {"S": "unique_client_id"},"numeroIdentificacion": {"S": "Numero de identificacion del Cliente"}}' \
+    --endpoint-url http://localhost:4566
+
+	
+
+
+docker exec -it fondo-localstack-1 /bin/sh -c "/scripts/init_dynamodb_tables.sh"
+
+
+
+Verificación de la Tabla:
+
+Después de unos momentos, verifica que la tabla Clientes (y otros índices definidos) existan en LocalStack:
+bash
+Copiar código
+aws dynamodb list-tables --endpoint-url http://localhost:4566
+También puedes verificar los detalles de la tabla específica:
+bash
+Copiar código
+aws dynamodb describe-table --table-name Clientes --endpoint-url http://localhost:4566
